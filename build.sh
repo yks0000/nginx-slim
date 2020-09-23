@@ -14,4 +14,4 @@ docker tag ${image_name}:"${version}" ${repo_path}/${image_name}:latest
 docker push ${repo_path}/${image_name}:"${version}"
 docker push ${repo_path}/${image_name}:latest
 # shellcheck disable=SC2181
-echo "${repo_path}/${image_name}:${version}" > VERSION
+echo "${repo_path}/${image_name}:${version}" > LATEST_RELEASE
