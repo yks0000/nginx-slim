@@ -18,3 +18,9 @@ jobs:
       run: |
            echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
            sh build.sh
+    - name: Push New Version to File
+      run: |
+           git config --global user.name 'github-ci'
+           git config --global user.email 'github-ci@users.noreply.github.com'
+           git commit -am "New Docker Version"
+           git push
