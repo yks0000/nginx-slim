@@ -16,5 +16,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build and Push to Docker Hub
       run: |
-           docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+           echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
            sh build.sh
