@@ -22,6 +22,7 @@ jobs:
       run: |
            git config --global user.name 'github-ci'
            git config --global user.email 'github-ci@users.noreply.github.com'
+           git add LATEST_RELEASE
            git commit -am "New Docker Version"
            git push
     - name: Github Docker Package
