@@ -28,7 +28,7 @@ jobs:
 #            sh github-package.sh
 #            echo "Package publish completed"
     - name: Change log
-      run:  git log HEAD~1..HEAD --pretty=%s -- > git-log.txt
+      run: git log -1 --oneline --pretty="%an:: %ai, %s" > git-log.txt
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
