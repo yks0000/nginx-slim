@@ -18,6 +18,7 @@ jobs:
       run: |
            echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
            sh build.sh
+           echo "Docker publish completed"
     - name: Push New Version to File
       run: |
            git config --global user.name 'github-ci'
@@ -25,10 +26,12 @@ jobs:
            git add LATEST_RELEASE
            git commit -am "New Docker Version"
            git push
+           echo "Push completed"
     - name: Github Docker Package
       run: |
             echo ${{ secrets.GH_TOKEN }} | docker login docker.pkg.github.com -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
             sh github-package.sh
+            echo "Package publish completed"
     - name: Change log
       run:  git log HEAD~1..HEAD --pretty=%s > git-log.txt
     - name: Create Release
