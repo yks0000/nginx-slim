@@ -27,4 +27,4 @@ jobs:
     - name: Github Docker Package
       run: |
             echo ${{ secrets.GH_TOKEN }} | docker login docker.pkg.github.com -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-
+            sh github-package.sh
