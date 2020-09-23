@@ -24,3 +24,7 @@ jobs:
            git config --global user.email 'github-ci@users.noreply.github.com'
            git commit -am "New Docker Version"
            git push
+    - name: Github Docker Package
+      run: |
+            echo ${{ secrets.GH_TOKEN }} | docker login docker.pkg.github.com -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
