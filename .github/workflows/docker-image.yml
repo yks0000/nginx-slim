@@ -1,4 +1,4 @@
-name: Nginx Slim Docker Image CI
+name: nginx-slim-docker-ci
 
 on:
   push:
