@@ -13,4 +13,4 @@ RUN apt-get update \
     && cp wrk /usr/local/bin \
     && chmod +x /usr/local/src/custom-index.sh
 
-ENTRYPOINT ['/bin/sh', '/usr/local/src/custom-index.sh']
+ENTRYPOINT ['/bin/bash', '/usr/local/src/custom-index.sh']
