@@ -1,6 +1,6 @@
 FROM k8s.gcr.io/nginx-slim:0.8
 
-MAINTAINER yks0000@gmail.com
+MAINTAINER Yogesh Sharma
 
 COPY custom-index.sh /usr/local/src/custom-index.sh
 RUN apt-get update \
