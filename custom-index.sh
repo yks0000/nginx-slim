@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 INDEX_HTML="/usr/share/nginx/html/index.html"
 
@@ -9,4 +9,4 @@ for var in $(env);
   do echo "<p>$var</p>" >> $INDEX_HTML;
 done
 
-nginx -g daemon off
+nginx -g 'daemon off;'

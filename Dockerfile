@@ -2,8 +2,6 @@ FROM k8s.gcr.io/nginx-slim:0.8
 
 MAINTAINER yks0000@gmail.com
 
-WORKDIR /
-
 COPY custom-index.sh /usr/local/src/custom-index.sh
 RUN apt-get update \
     && apt-get install procps vim dnsutils netcat build-essential libssl-dev git -y \
@@ -11,6 +9,8 @@ RUN apt-get update \
     && cd wrk \
     && make \
     && cp wrk /usr/local/bin \
-    && chmod +x /usr/local/src/custom-index.sh
+    && chmod +x /usr/local/src/custom-index.sh \
+    && cd .. \
+    && rm -rfv wrk
 
-ENTRYPOINT ['/bin/bash', '/usr/local/src/custom-index.sh']
+CMD ["/bin/bash", "/usr/local/src/custom-index.sh"]
